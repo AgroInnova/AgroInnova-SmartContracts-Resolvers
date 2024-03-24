@@ -1,20 +1,7 @@
-// File: @ethereum-attestation-service\eas-contracts\contracts\ISemver.sol
-
 // SPDX-License-Identifier: MIT
+// File: @ethereum-attestation-service/eas-contracts/contracts/Common.sol
 
-pragma solidity ^0.8.0;
 
-/// @title ISemver
-/// @notice A semver interface.
-interface ISemver {
-    /// @notice Returns the full semver contract version.
-    /// @return Semver contract version as a string.
-    function version() external view returns (string memory);
-}
-
-// File: @ethereum-attestation-service\eas-contracts\contracts\Common.sol
-
-// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -59,11 +46,26 @@ function uncheckedInc(uint256 i) pure returns (uint256 j) {
     }
 }
 
-// File: @ethereum-attestation-service\eas-contracts\contracts\resolver\ISchemaResolver.sol
+// File: @ethereum-attestation-service/eas-contracts/contracts/ISemver.sol
 
-// SPDX-License-Identifier: MIT
+
 
 pragma solidity ^0.8.0;
+
+/// @title ISemver
+/// @notice A semver interface.
+interface ISemver {
+    /// @notice Returns the full semver contract version.
+    /// @return Semver contract version as a string.
+    function version() external view returns (string memory);
+}
+
+// File: @ethereum-attestation-service/eas-contracts/contracts/resolver/ISchemaResolver.sol
+
+
+
+pragma solidity ^0.8.0;
+
 
 
 /// @title ISchemaResolver
@@ -102,11 +104,13 @@ interface ISchemaResolver is ISemver {
     ) external payable returns (bool);
 }
 
-// File: @ethereum-attestation-service\eas-contracts\contracts\ISchemaRegistry.sol
+// File: @ethereum-attestation-service/eas-contracts/contracts/ISchemaRegistry.sol
 
-// SPDX-License-Identifier: MIT
+
 
 pragma solidity ^0.8.0;
+
+
 
 /// @notice A struct representing a record for a submitted schema.
 struct SchemaRecord {
@@ -138,11 +142,12 @@ interface ISchemaRegistry is ISemver {
     function getSchema(bytes32 uid) external view returns (SchemaRecord memory);
 }
 
-// File: @ethereum-attestation-service\eas-contracts\contracts\IEAS.sol
+// File: @ethereum-attestation-service/eas-contracts/contracts/IEAS.sol
 
-// SPDX-License-Identifier: MIT
+
 
 pragma solidity ^0.8.0;
+
 
 
 
@@ -511,12 +516,15 @@ interface IEAS is ISemver {
 
 // File: attester.sol
 
-// SPDX-License-Identifier: MIT
+
 pragma solidity 0.8.24;
+
+
+
 /// @title Attester
 /// @notice Ethereum Attestation Service - Example
 contract Attester {
-    error InvalidEAS();
+    
 
     // The address of the global EAS contract.
     IEAS private immutable _eas;
